@@ -21,6 +21,7 @@ set breakindent
 set nostartofline
 set shiftwidth=2
 set tabstop=2
+set expandtab
 set smartcase
 set hlsearch
 set incsearch
@@ -28,6 +29,8 @@ set splitbelow
 set splitright
 
 syntax enable
+
+filetype plugin indent on
 
 au BufNewFile,BufRead *.fish set ft=fish
 

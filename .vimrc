@@ -1,6 +1,5 @@
 set ttymouse=xterm2
 set number
-set relativenumber
 set linespace=12
 set background=dark
 set expandtab
@@ -24,19 +23,17 @@ set autoindent
 set nostartofline
 set ruler
 set laststatus=2
-set visualbell
-set t_vb=
 set mouse=
 set cmdheight=2
 set notimeout ttimeout ttimeoutlen=200
-set colorcolumn=80
-set foldmethod=syntax
+set colorcolumn=100
 
 syntax enable
 
 filetype indent plugin on
 
 map Y y$
+map <C-a> :%y+<Esc>
 
 inoremap jk <esc>
 
@@ -56,6 +53,7 @@ nnoremap <Left>     <Nop>
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
   au FileType javascript set shiftwidth=2 softtabstop=2 expandtab foldmethod=indent
+  au BufRead,BufNewFile *.ts   setfiletype typescript 
 endif
 
 " so ~/.vim/plugins.vim

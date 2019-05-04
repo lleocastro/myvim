@@ -27,6 +27,7 @@ set cmdheight=2
 set notimeout ttimeout ttimeoutlen=200
 set colorcolumn=100
 set foldmethod=syntax
+set guifont=Monospace\ Regular\ 10
 
 syntax enable
 

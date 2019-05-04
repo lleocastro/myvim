@@ -7,7 +7,6 @@ set linebreak
 set breakindent
 set shiftwidth=2
 set tabstop=2
-set expandtab
 set backspace=indent,eol,start
 set nocompatible
 set hidden
@@ -27,6 +26,7 @@ set mouse=
 set cmdheight=2
 set notimeout ttimeout ttimeoutlen=200
 set colorcolumn=100
+set foldmethod=syntax
 
 syntax enable
 

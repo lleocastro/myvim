@@ -1,69 +1,64 @@
-set nobackup
-set nowb
-set noswapfile
-set noerrorbells
-set mouse=a
 set ttymouse=xterm2
-set so=999
-set clipboard=unnamedplus
-set wildmenu
 set number
+set relativenumber
 set linespace=12
-set title
-set titlestring=%F\ -\ vim
-set noshowmode
-set laststatus=2
 set background=dark
 set expandtab
-set smarttab
 set linebreak
 set breakindent
-set nostartofline
 set shiftwidth=2
 set tabstop=2
 set expandtab
-set smartcase
+set backspace=indent,eol,start
+set nocompatible
+set hidden
+set confirm
+set autowriteall
+set wildmenu
+set showcmd
 set hlsearch
-set incsearch
-set splitbelow
-set splitright
+set nomodeline
+set ignorecase
+set smartcase
+set autoindent
+set nostartofline
+set ruler
+set laststatus=2
+set visualbell
+set t_vb=
+set mouse=
+set cmdheight=2
+set notimeout ttimeout ttimeoutlen=200
+set colorcolumn=80
+set foldmethod=syntax
 
 syntax enable
 
-filetype plugin indent on
+filetype indent plugin on
 
-au BufNewFile,BufRead *.fish set ft=fish
+map Y y$
 
-set backspace=indent,eol,start
+inoremap jk <esc>
 
-map <C-o> :NERDTreeToggle<CR>
-
-map <Leader> <Plug>(easymotion-prefix)
+nnoremap <space> za
+nnoremap <Up>       <Nop>
+nnoremap <Down>     <Nop>
+nnoremap <Right>    <Nop>
+nnoremap <Left>     <Nop>
 
 " Install and run vim-plug on first run
-if empty(glob('~/.vim/autoload/plug.vim'))
-    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/lleocastro/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+" if empty(glob('~/.vim/autoload/plug.vim'))
+"     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+"     \ https://raw.githubusercontent.com/lleocastro/vim-plug/master/plug.vim
+"     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+" endif
+
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+  au FileType javascript set shiftwidth=2 softtabstop=2 expandtab foldmethod=indent
 endif
 
-so ~/.vim/plugins.vim
+" so ~/.vim/plugins.vim
 
-highlight GitGutterAdd ctermfg=green ctermbg=NONE
-highlight GitGutterChange ctermfg=yellow ctermbg=NONE
-highlight GitGutterDelete ctermfg=red ctermbg=NONE
-highlight GitGutterChangeDelete ctermfg=yellow ctermbg=NONE
-
-let g:lightline = {
-  \     'active': {
-  \         'left': [['mode', 'paste' ], ['readonly', 'filename', 'modified']],
-  \         'right': [['lineinfo'], ['percent'], ['gitbranch', 'fileformat', 'fileencoding']]
-  \     },
-  \     'component_function': {
-  \         'gitbranch': 'gitbranch#name'
-  \     }
-  \ }
-
-let NERDTreeShowHidden = 1
 let g:jsx_ext_required = 1
 let g:jsx_pragma_required = 1

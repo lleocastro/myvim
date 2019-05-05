@@ -54,7 +54,7 @@ nnoremap <Left>     <Nop>
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
   au FileType javascript set shiftwidth=2 softtabstop=2 expandtab foldmethod=indent
-  au BufRead,BufNewFile *.ts   setfiletype typescript 
+  autocmd BufNewFile,BufRead *.ts set filetype=javascript
 endif
 
 " so ~/.vim/plugins.vim

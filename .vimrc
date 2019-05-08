@@ -1,5 +1,6 @@
 set ttymouse=xterm2
 set number
+" set relativenumber
 set linespace=12
 set background=dark
 set expandtab
@@ -28,6 +29,7 @@ set notimeout ttimeout ttimeoutlen=200
 set colorcolumn=100
 set foldmethod=syntax
 set guifont=Monospace\ Regular\ 10
+set listchars=eol:$,tab:.,trail:~,extends:>,precedes:<,space:.
 
 syntax enable
 
@@ -43,6 +45,9 @@ nnoremap <Up>       <Nop>
 nnoremap <Down>     <Nop>
 nnoremap <Right>    <Nop>
 nnoremap <Left>     <Nop>
+nnoremap <C-L> :nohl<CR><C-L>
+
+packloadall
 
 " Install and run vim-plug on first run
 " if empty(glob('~/.vim/autoload/plug.vim'))
@@ -61,3 +66,5 @@ endif
 
 let g:jsx_ext_required = 1
 let g:jsx_pragma_required = 1
+let g:indentLine_leadingSpacChar = 'Â·'
+let g:indentLine_leadingSpaceEnabled = 1

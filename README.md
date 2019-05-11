@@ -5,8 +5,8 @@ and put content it in the your home directory.
 
 ##### Example:
 ```sh
-/home/<user>/.vim/**
 /home/<user>/.vimrc
+/home/<user>/.bash_aliases
 ```
 
 ### License

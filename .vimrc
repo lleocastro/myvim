@@ -29,7 +29,13 @@ set notimeout ttimeout ttimeoutlen=200
 set colorcolumn=100
 set foldmethod=syntax
 set guifont=Monospace\ Regular\ 10
-set listchars=eol:$,tab:.,trail:~,extends:>,precedes:<,space:.
+set list
+set listchars=eol:$,tab:\|.,trail:~,space:.
+set showmatch
+set incsearch
+set foldenable
+set foldlevelstart=5
+set path+=**
 
 syntax enable
 
@@ -41,6 +47,8 @@ map <C-a> :%y+<Esc>
 inoremap jk <esc>
 
 nnoremap <space> za
+nnoremap j gj
+nnoremap k gk
 nnoremap <Up>       <Nop>
 nnoremap <Down>     <Nop>
 nnoremap <Right>    <Nop>
@@ -56,15 +64,18 @@ packloadall
 "     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 " endif
 
+" so ~/.vim/plugins.vim
+
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
   au FileType javascript set shiftwidth=2 softtabstop=2 expandtab foldmethod=indent
   autocmd BufNewFile,BufRead *.ts set filetype=javascript
 endif
 
-" so ~/.vim/plugins.vim
-
 let g:jsx_ext_required = 1
 let g:jsx_pragma_required = 1
-let g:indentLine_leadingSpacChar = 'Â·'
-let g:indentLine_leadingSpaceEnabled = 1
+let g:indentLine_leadingSpacChar='·'
+let g:indentLine_leadingSpaceEnabled='1'
+let g:netrw_altv = 1
+let g:netrw_liststyle = 3
+let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'

@@ -1,1 +1,1 @@
-vim='vim -O'
+alias vim='vim -O'

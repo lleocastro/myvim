@@ -34,7 +34,6 @@ set listchars=eol:$,tab:\|.,trail:~,space:.
 set showmatch
 set incsearch
 set foldenable
-set foldlevelstart=5
 set path+=**
 
 syntax enable
